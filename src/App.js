@@ -6,7 +6,7 @@ function App() {
 
     <div className="App">
      <List/>
-        {console.log("This is test from mac")}
+
     </div>
 
   );
