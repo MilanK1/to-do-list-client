@@ -1,16 +1,24 @@
 import React, {useState} from 'react'
-import axios from 'axios'
+import Axios from 'axios'
 export default function List(el){
     const [addList, setAddList]=useState([])
     const [inpValue, setInpValue]=useState("")
     const addListButton = ()=>{
  setAddList([...addList, {text: inpValue, id:"", pos:0}])
  setInpValue("")
-//Functions go here
-      axios.post(`http://localhost:8001/AddToDo`, {
-         inpValue: inpValue
-        })
+// Functions go here
+
+
     }
+
+    const ToDo = ()=>{
+        Axios.post(`http://localhost:8001/AddToDo`, {
+            inputValue: addList
+        })
+
+    }
+
+
     return(
 <div className="wrapper">
 
@@ -18,6 +26,7 @@ export default function List(el){
 <input value={inpValue} onChange={(e)=>setInpValue(e.target.value)}/>
 {console.log(inpValue)}
 <button onClick={addListButton}>Add</button>
+<button onClick={ToDo}>Test</button>
 <ul>
     {addList.map(el=><li>{el.text}</li>)}
 
