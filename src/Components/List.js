@@ -2,13 +2,14 @@ import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 export default function List(props){
     const [addList, setAddList]=useState([])
-    useEffect(()=>{
-        Axios.get(`http://localhost:8001/getAllToDo`).then(res=>{
-            setAddList([...res.data])
-            console.log(res)
-        })
-    },[])
-
+    // useEffect(()=>{
+    //     Axios.get(`http://localhost:8001/getAllToDo`).then(res=>{
+    //        // setAddList([...res.data].map(el=> el.inputValue))
+    //         [...res.data].map(el=> el.inputValue)
+    //        console.log(addList)
+    //
+    //     })
+    // },[])
 
 
     const [inpValue, setInpValue]=useState("")
@@ -21,7 +22,20 @@ export default function List(props){
 
     }
 
+    useEffect(()=>{
+        const list = () =>
+        {
 
+            Axios.get(`http://localhost:8001/getAllToDo`).then(res=> {
+                // setAddList([...res.data].map(el=> el.inputValue))
+                // [...res.data].map(el=> <li>{el.inputValue}</li>)
+                <li> {[...res.data].map(el => el.inputValue).join("")}</li>
+                console.log([...res.data].map(el=> el.inputValue + ',').join(""))
+            })
+        }
+        list()
+
+    },[])
 
 
     return(
@@ -34,7 +48,6 @@ export default function List(props){
 
 <ul>
     {addList.map(el=><li>{el.text}</li>)}
-
 
 </ul>
 
