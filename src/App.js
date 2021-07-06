@@ -1,11 +1,18 @@
 import './App.css';
 import React from 'react';
-import List from './Components/List';
+import List from './Components/list/List';
+import Header from "./Components/header/Header"
+
 function App() {
   return (
 
     <div className="App">
-     <List/>
+
+        <div className="Header"> <Header/></div>
+    <br/>
+
+        <div className="List"><List/></div>
+
 
     </div>
 
