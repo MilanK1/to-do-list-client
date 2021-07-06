@@ -1,41 +1,64 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 export default function List(props){
+
+
     const [addList, setAddList]=useState([])
-    // useEffect(()=>{
-    //     Axios.get(`http://localhost:8001/getAllToDo`).then(res=>{
-    //        // setAddList([...res.data].map(el=> el.inputValue))
-    //         [...res.data].map(el=> el.inputValue)
-    //        console.log(addList)
-    //
-    //     })
-    // },[])
-
-
     const [inpValue, setInpValue]=useState("")
-    const addListButton = ()=>{
 
- setAddList([...addList, {text: inpValue, id:"", pos:0}])
+
+
+//GET request for getting all the todo
+    useEffect(()=>{
+       getList()
+
+    },[])
+
+const getList = ()=>{
+    Axios.get(`http://localhost:8001/todo/getAllToDo`).then(res=> {
+
+        setAddList(res.data)
+
+        console.log(res.data)
+    })
+    }
+
+
+    const addListButton = ()=>{
+const box = {
+    text:inpValue,
+    pos: 0
+}
+
+
+
+
  setInpValue("")
 // Functions go here
+
+        //POST request for the server to get input value
+Axios.post(`http://localhost:8001/todo/addToDo`, box).then(res=>{
+    console.log(res.data, "Packet was sent!")
+    getList()
+}).catch(error=>{
+    console.log(error)
+})
+
 
 
     }
 
-    useEffect(()=>{
-        const list = () =>
-        {
-
-            Axios.get(`http://localhost:8001/getAllToDo`).then(res=> {
-                // setAddList([...res.data].map(el=> el.inputValue))
-                // [...res.data].map(el=> <li>{el.inputValue}</li>)
-                <li> {[...res.data].map(el => el.inputValue).join("")}</li>
-                console.log([...res.data].map(el=> el.inputValue + ',').join(""))
+    const deleteListButton = (id)=>{
+        Axios.delete(`http://localhost:8001/todo/${id}`)
+            .then(res=>{console.log(res, "Deleted successfully!")
+                getList()
             })
-        }
-        list()
 
-    },[])
+    }
+
+
+
+
 
 
     return(
@@ -47,7 +70,9 @@ export default function List(props){
 <button onClick={addListButton}>Add</button>
 
 <ul>
-    {addList.map(el=><li>{el.text}</li>)}
+    {addList.map(el=><li>{el.text}
+        <button onClick={()=>deleteListButton(el._id)}>Delete</button></li>)
+    }
 
 </ul>
 
