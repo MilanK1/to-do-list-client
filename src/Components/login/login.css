@@ -5,8 +5,9 @@
 }
 html, body, .container {
     height: 100%;
-    font-size: 20px;
-    font-family:  'Brush Script MT', cursive;
+    font-size: 30px;
+    /*font-family:  'Brush Script MT', cursive;*/
+    font-family: 'Dosis', cursive;
 }
 a {
     color: inherit;
@@ -21,7 +22,7 @@ a:hover {
     justify-content: center;
     padding:0.4em;
     margin: 0.2em;
-    box-shadow:10px red;
+    box-shadow:10px #ff0000;
 }
 .uppercase {
     text-transform: uppercase;
