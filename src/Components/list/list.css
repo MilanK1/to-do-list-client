@@ -43,8 +43,9 @@ a:hover {
     color: #fff;
     box-shadow: 0 0 50px 40x rgba(0, 0, 0, .1);
     /*text-shadow: 0 4px 4px #000;*/
-    border-radius: 25px;
+    border-radius: 3px;
     padding: 12px 36px;
+    padding-top:14px;
 }
 .btn--primary:hover {
     background: #6c7ff2;

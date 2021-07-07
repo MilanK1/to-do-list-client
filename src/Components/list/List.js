@@ -84,6 +84,7 @@ Axios.post(`http://localhost:8001/todo/addToDo`, box).then(res=>{
 
 <ul className="container">
     {addList.map(el=><li  className="form__field">{el.text}
+    <br/>
         <button className="btn btn--primary"  onClick={()=>deleteListButton(el._id)}>Delete</button></li>)
     }
 
