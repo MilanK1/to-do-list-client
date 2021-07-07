@@ -26,6 +26,9 @@ const getList = ()=>{
 
 
     const addListButton = ()=>{
+
+
+
 const box = {
     text:inpValue,
     pos: 0
@@ -36,6 +39,8 @@ const box = {
 
  setInpValue("")
 // Functions go here
+
+
 
         //POST request for the server to get input value
 Axios.post(`http://localhost:8001/todo/addToDo`, box).then(res=>{
@@ -57,7 +62,18 @@ Axios.post(`http://localhost:8001/todo/addToDo`, box).then(res=>{
 
     }
 
+    const handler = (event) => {
+        if (event.key === 'Enter') {
+            addListButton()
+        } else {
+            console.log("Enter was not pressed")
+        }
 
+
+    };
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
 
 
 
@@ -71,9 +87,9 @@ Axios.post(`http://localhost:8001/todo/addToDo`, box).then(res=>{
 
     <div className="container">
         <div className="container__item">
-            <form className="form">
-                <input type="input" className="form__field" placeholder="ToDo" value={inpValue} onChange={(e)=>setInpValue(e.target.value)}/>
-                <button type="button" className="btn btn--primary btn--inside" onClick={addListButton}>Add</button>
+            <form className="form"  onSubmit={handleSubmit}  onKeyPress={(e)=>handler(e)}>
+                <input type="text"   className="form__field" placeholder="ToDo" value={inpValue} onChange={(e)=>setInpValue(e.target.value)} />
+                <button type="button" className="btn btn--primary btn--inside" onClick={addListButton} >Add</button>
             </form>
         </div>
 

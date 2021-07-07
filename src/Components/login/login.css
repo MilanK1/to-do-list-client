@@ -6,6 +6,7 @@
 html, body, .container {
     height: 100%;
     font-size: 20px;
+    font-family:  'Brush Script MT', cursive;
 }
 a {
     color: inherit;
@@ -78,5 +79,5 @@ button {
 }
 .submit-btn{
    position: relative;
-   left: 6.45vh;
+   left: 2.7em;
 }
