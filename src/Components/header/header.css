@@ -8,6 +8,9 @@ a {
     color: #000;
     text-shadow: 0px 2px 4px rgba(0,3,0,.5) !important;
 }
+li{
+    cursor: pointer;
+}
 
 /* header */
 

@@ -73,7 +73,7 @@ Axios.post(`http://localhost:8001/todo/addToDo`, box).then(res=>{
         <div className="container__item">
             <form className="form">
                 <input type="input" className="form__field" placeholder="ToDo" value={inpValue} onChange={(e)=>setInpValue(e.target.value)}/>
-                <button type="button" className="btn btn--primary btn--inside uppercase" onClick={addListButton}>Add</button>
+                <button type="button" className="btn btn--primary btn--inside" onClick={addListButton}>Add</button>
             </form>
         </div>
 
