@@ -14,11 +14,14 @@ function App() {
             <Header/>
         </div>
     <br/>
-
+        <Switch>
         <div className="List">
-            <List/>
+            <Route path="/" exact component={List}/>
         </div>
+            <div className="Login-register-forms">
 
+            </div>
+        </Switch>
 
     </div>
 </BrowserRouter>
