@@ -10,7 +10,8 @@ return(
         <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
         <ul className="menu">
           <Link to={"/"}>  <li><a>Home</a></li> </Link>
-           <Link to={'login'}> <li><a >Reg/Log in</a></li> </Link>
+           <Link to={'login'}> <li><a >Log in</a></li> </Link>
+           <Link to={'register'}> <li><a >Register</a></li> </Link>
         </ul>
     </header>
 

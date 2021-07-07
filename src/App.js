@@ -3,6 +3,7 @@ import React from 'react';
 import List from './Components/list/List';
 import Header from "./Components/header/Header"
 import Login from "./Components/login/Login";
+import Register from "./Components/register/Register";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 
@@ -21,8 +22,14 @@ function App() {
         </div>
         </Switch>
         <Switch>
-            <div className="Login-register-forms">
+            <div className="Login-form">
                 <Route path="/login" component={Login}/>
+            </div>
+        </Switch>
+
+        <Switch>
+            <div className="register-form">
+                <Route path="/register" component={Register}/>
             </div>
         </Switch>
 
